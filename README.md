@@ -154,3 +154,13 @@ flowchart TD
 Screenshot that my testing worked
 <img width="570" height="556" alt="UnitTestingWeek3" src="https://github.com/user-attachments/assets/227cf07a-26ba-4e21-99ac-3c76152a3ed3" />
 Screenshot taken 22 September 2026 at 21:04 EST
+
+### Unit Testing Includes 
+- test_new_df: This tests the ability to read a .csv and make a dataframe
+- test_add_columns: Tests the ability to create a new dataframe with new column of None type
+- test_create_fire_features: Tests the function to create a df with fire related columns and a new column with the sum of `Forest fires` and `Fires in tropical humid forests`.
+- test_train_and_evaluate_models: Confirms the functionality of the machine learning modeling function
+
+### System Testing
+Runs a system test on the modified Japan_Agrofood_co2_emission.csv  
+Using this dataframe reduces the time testing takes.
