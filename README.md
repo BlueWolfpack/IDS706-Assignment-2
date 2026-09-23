@@ -149,3 +149,8 @@ flowchart TD
 - **Crop residue**: The remains of crops left in the field after harvest. [Source](https://www.sciencedirect.com/topics/agricultural-and-biological-sciences/crop-residue)
 
 *Diwas and AI assisted me in formatting the README.md file*
+
+## Testing
+Screenshot that my testing worked
+<img width="570" height="556" alt="UnitTestingWeek3" src="https://github.com/user-attachments/assets/227cf07a-26ba-4e21-99ac-3c76152a3ed3" />
+Screenshot taken 22 September 2026 at 21:04 EST
