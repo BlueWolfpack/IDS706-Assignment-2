@@ -1,5 +1,5 @@
 # IDS 706 Week 2 Assignment
-[![Python application](https://github.com/BlueWolfpack/IDS706-Assignment-2/actions/workflows/python-app.yml/badge.svg)](https://github.com/BlueWolfpack/IDS706-Assignment-2/actions/workflows/python-app.yml)
+[![Python application](https://github.com/BlueWolfpack/IDS706-Assignment-2/actions/workflows/python-app.yml/badge.svg)](https://github.com/BlueWolfpack/IDS706-Assignment-2/actions/workflows/python-app.yml)  
 This project is for the IDS 706 Data Engineering course Week 2 assignment, "Start Your First Data Analysis."
 
 The dataset in [Agrofood_co2_emission.csv](Agrofood_co2_emission.csv) was downloaded from Kaggle on 8 September 2026. The analysis and notes are in [assignment_2_ntbk.ipynb](assignment_2_ntbk.ipynb). The executable version of the analysis is [assignment_2_ntbk.py](assignment_2_ntbk.py), which uses reusable functions from [fxns_for_ACE.py](fxns_for_ACE.py).
