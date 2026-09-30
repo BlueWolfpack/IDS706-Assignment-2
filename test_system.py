@@ -11,14 +11,13 @@ import assignment_2_ntbk
 
 class TestAssignmentWorkflow(unittest.TestCase):
     """Verify that the complete analysis workflow runs successfully."""
+
     # I have no idea what @patch does
     @patch("assignment_2_ntbk.plt.show")
     def test_main_runs_complete_workflow(self, show_mock):
         output = io.StringIO()
         # Japan_Agrofood_co2_emission.csv used to reduce testing runtime
-        fixture_path = Path(__file__).with_name(
-            "Japan_Agrofood_co2_emission.csv" 
-        )
+        fixture_path = Path(__file__).with_name("Japan_Agrofood_co2_emission.csv")
 
         with redirect_stdout(output):
             assignment_2_ntbk.main(fixture_path)

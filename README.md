@@ -164,3 +164,32 @@ Screenshot taken 22 September 2026 at 21:04 EST
 ### System Testing
 Runs a system test on the modified Japan_Agrofood_co2_emission.csv  
 Using this dataframe reduces the time testing takes.
+
+## Docker
+
+Build the Docker image from the project directory:
+
+```bash
+docker build -t ids706-assignment-2 .
+```
+
+Run the analysis in a container:
+
+```bash
+docker run --rm ids706-assignment-2
+```
+
+The container runs `assignment_2_ntbk.py`, prints its results in the terminal, and is removed after it exits. Matplotlib uses a noninteractive backend in the container, so plots do not open in windows; the script does not save plot files.
+The full dataset and model training can use substantial memory. If the container exits with status `137`, Docker or the host may have terminated it, often because of memory pressure. Increase the memory available to Docker or stop other running containers before trying again.
+
+### Screenshots confirming image and container
+
+[Screenshot of image on Docker](screenshots/docker_image.png)
+
+[Screenshot of container on Docker](screenshots/docker_container.png)
+
+### What I've learned about Docker
+
+I believe that I have a decent understanding of the process/flow required to create an image and then a container. I have learned that you can have multiple containers open and have the option to close specified containers without changing the status of other open containers.
+
+I am unsure why my bash command `docker run --rm ids706-assignment-2` did not seem to execute completely, but Docker Desktop showed a new container so I think it did?
