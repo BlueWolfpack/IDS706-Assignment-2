@@ -6,7 +6,6 @@ import matplotlib.pyplot as plt
 
 import fxns_for_ACE as fxn
 
-
 DATA_PATH = Path(__file__).with_name("Agrofood_co2_emission.csv")
 
 
@@ -24,17 +23,17 @@ def main(data_path=DATA_PATH):
     print("Best models by area and predictor:")
     print(best_models.head(30))
     print("\nBest models sorted by R2:")
-    print(best_models.sort_values('R2', ascending=False).head(30))
+    print(best_models.sort_values("R2", ascending=False).head(30))
 
-    fxn.plot_fire_emissions(fire_data, 'United States of America')
+    fxn.plot_fire_emissions(fire_data, "United States of America")
     plt.show()
 
-    fxn.plot_fire_emissions(fire_data, 'Greece')
+    fxn.plot_fire_emissions(fire_data, "Greece")
     plt.show()
 
     fxn.plot_population_ratio(population_data)
     plt.show()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

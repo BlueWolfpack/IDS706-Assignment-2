@@ -7,7 +7,10 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     MPLBACKEND=Agg
 
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt \
+    test_cases.py \
+    tests.py \
+    test_system.py
 
 COPY fxns_for_ACE.py assignment_2_ntbk.py Agrofood_co2_emission.csv ./
 

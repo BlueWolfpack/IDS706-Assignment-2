@@ -8,13 +8,17 @@ The analysis is organized into functions for data loading, preprocessing, featur
 
 ## Project Files
 *This section was written with AI*
+- [SETUP.md](SETUP.md): file with setup code
 - [assignment_2_ntbk.ipynb](assignment_2_ntbk.ipynb): Notebook version of the analysis.
 - [assignment_2_ntbk.py](assignment_2_ntbk.py): Script entry point with `main()`.
 - [fxns_for_ACE.py](fxns_for_ACE.py): Reusable analysis functions.
 - [tests.py](tests.py): Unit tests for dataframe and modeling functions.
+- [test_cases.py](test_cases.py): Test cases to ensure functionality is preserved
 - [test_system.py](test_system.py): End-to-end system test for the complete workflow.
 - [Agrofood_co2_emission.csv](Agrofood_co2_emission.csv): Full analysis dataset.
 - [Japan_Agrofood_co2_emission.csv](Japan_Agrofood_co2_emission.csv): Smaller fixture used in testing to reduce runtime.
+- [test_fire.csv](test_fire.csv): Small csv to ensure that the test_fire function runs properly
+- [Dockerfile](Dockerfile): Docker image set up. Test caes are run when container is opened. (*I think this is how it works*)
 
 ## Setup and Usage
 
@@ -150,6 +154,26 @@ flowchart TD
 
 *Diwas and AI assisted me in formatting the README.md file*
 
+## Results - Discussion
+
+### Question 1: Did forest fires affect a forest's future ability to sequester CO2?
+
+There does not seem to be any meaningful impact of forest firest on co2 emissions. It is possible that there is a correlation, but that is difficult to discern from the graphs alone and further analysis would be required.
+
+### Question 2: Does the ratio of urban to rural populations affect total emissions?
+
+The data is not clear enough to determine an impact that the ratio may have on total emissions
+
+###  Question 3: Which variable best predicts total emissions?
+
+The best predictors of total emission for an area are: `Food Retail`, `Average Temperature`, `Total Population` (Male and Female), `Urban population`, `Food Transport`, and `Rural population` with counts \> 220
+
+The worst predictors of total emission for an area are: `Fires in humid tropical forests` and `Fires in organic soils` with counts \<100
+
+### Key Takeaway
+
+I need different analyses to properly derive connections
+
 ## Testing
 Screenshot that my testing worked
 <img width="570" height="556" alt="UnitTestingWeek3" src="https://github.com/user-attachments/assets/227cf07a-26ba-4e21-99ac-3c76152a3ed3" />
@@ -182,14 +206,32 @@ docker run --rm ids706-assignment-2
 The container runs `assignment_2_ntbk.py`, prints its results in the terminal, and is removed after it exits. Matplotlib uses a noninteractive backend in the container, so plots do not open in windows; the script does not save plot files.
 The full dataset and model training can use substantial memory. If the container exits with status `137`, Docker or the host may have terminated it, often because of memory pressure. Increase the memory available to Docker or stop other running containers before trying again.
 
+### Dockerfile
+
+
 ### Screenshots confirming image and container
 
 [Screenshot of image on Docker](screenshots/docker_image.png)
 
 [Screenshot of container on Docker](screenshots/docker_container.png)
 
+[Screenshot of container terminal output](screenshots/docker_container_terminal_output.png)
+
 ### What I've learned about Docker
 
 I believe that I have a decent understanding of the process/flow required to create an image and then a container. I have learned that you can have multiple containers open and have the option to close specified containers without changing the status of other open containers.
 
 I am unsure why my bash command `docker run --rm ids706-assignment-2` did not seem to execute completely, but Docker Desktop showed a new container so I think it did?
+> I figured it out. My model program takes several minutes to run, so that is why it seemed like it didn't execute completely. Maybe I should have it return something like `"Container is open"` before it starts executing other things.
+
+## Refactoring
+
+As part of my refactoring, I reformatted with Black Formatter.
+
+I also went through some of the test files and test cases that I had AI develop for me and verified whether they were needed or not and made some changes to them. I don't have many screenshots of this as it was done before saving. 
+
+[One instance of removing an unnecessary test between commits](screenshots/test_cases-refactoring.png)
+
+Additionally, I had initially written my code all in one big chunk, but when instructed to do unit testing, I realized I needed to break my code up into various functions. I do not have a screenshot of the before code, but the current code is how it looks now. I made the `fxns_for_ACE.py` file which houses the functions used in `assignment_2_ntbk.ipynb`. 
+
+The verification of the project's functionality was done by running the unit tests and, once those passed, running the system test.
